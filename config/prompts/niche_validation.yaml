@@ -1,0 +1,56 @@
+name: "Niche Validation"
+agent: "niche_validator"
+phase: 2
+version: 1
+variables:
+  - niche
+  - trend_data
+  - competitor_data
+  - marketplace_data
+
+templates:
+  validate_niche: |
+    You are a digital product market validator.
+
+    Analyze whether this niche has enough demand and low enough competition
+    to launch a profitable digital info-product.
+
+    NICHE: {{niche}}
+
+    TREND DATA (Google Trends / SerpAPI):
+    {{trend_data}}
+
+    COMPETITOR DATA (Meta Ad Library — who's running ads in this space):
+    {{competitor_data}}
+
+    MARKETPLACE DATA (Hotmart — existing products and their performance):
+    {{marketplace_data}}
+
+    Provide your validation assessment:
+    1. Demand score (1-100): Is there real search/buying intent?
+    2. Competition score (1-100): How saturated is this? (higher = more competitive)
+    3. Opportunity score (1-100): Overall viability for a new product
+    4. Green light / Red light recommendation
+    5. Reasoning (2-3 sentences)
+    6. Suggested positioning: How to differentiate from existing products
+    7. Risk factors
+
+    Return as JSON.
+
+  analyze_competitors: |
+    Analyze these competitor ads and products in the {{niche}} space.
+
+    META ADS FOUND:
+    {{ads_data}}
+
+    HOTMART PRODUCTS:
+    {{hotmart_data}}
+
+    Identify:
+    1. Common pricing patterns
+    2. Recurring promises/hooks
+    3. Gaps in the market (what nobody is offering)
+    4. What's working (high engagement indicators)
+    5. Suggested price point for our product
+
+    Return as JSON.

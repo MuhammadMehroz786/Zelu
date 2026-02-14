@@ -1,0 +1,40 @@
+# Core
+flask==3.1.0
+flask-cors==5.0.1
+flask-sqlalchemy==3.1.1
+flask-migrate==4.1.0
+gunicorn==23.0.0
+
+# Database
+psycopg2-binary==2.9.10
+sqlalchemy==2.0.36
+
+# Task Queue
+celery[redis]==5.4.0
+redis==5.2.1
+
+# AI / LLM
+openai==1.59.0
+anthropic==0.42.0
+langchain==0.3.14
+langchain-openai==0.3.0
+langchain-anthropic==0.3.6
+langgraph==0.2.60
+
+# API Integrations
+httpx==0.28.1
+requests==2.32.3
+praw==7.8.1
+stripe==11.4.0
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.10.4
+pyyaml==6.0.2
+structlog==24.4.0
+tenacity==9.0.0
+uuid6==2024.7.10
+
+# Development
+pytest==8.3.4
+pytest-asyncio==0.25.0

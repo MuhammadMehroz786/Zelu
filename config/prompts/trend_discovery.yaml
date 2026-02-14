@@ -1,0 +1,47 @@
+name: "Trend Discovery"
+agent: "trend_discovery"
+phase: 1
+version: 1
+variables:
+  - category
+  - region
+  - timeframe
+
+templates:
+  analyze_trends: |
+    You are a market research analyst specializing in digital info-products.
+
+    Analyze the following trend signals and identify the TOP 5 opportunities
+    for creating sellable digital products (ebooks, courses, guides, templates).
+
+    Category: {{category}}
+    Region: {{region}}
+    Timeframe: {{timeframe}}
+
+    TREND SIGNALS:
+    {{trend_data}}
+
+    For each opportunity, provide:
+    1. Topic/Niche name
+    2. Why it's trending (growth signals)
+    3. Target audience (who would buy this)
+    4. Product type suggestion (ebook, course, guide, toolkit)
+    5. Confidence score (1-100) for digital product viability
+    6. Estimated market saturation (low/medium/high)
+
+    Return as JSON array.
+
+  score_trend: |
+    Rate this trend for digital product potential on a scale of 1-100.
+
+    Trend: {{trend_name}}
+    Growth data: {{growth_data}}
+    Related searches: {{related_searches}}
+
+    Consider:
+    - Is this something people would PAY to learn about?
+    - Can it be packaged as an info product?
+    - Is the audience reachable via Meta Ads?
+    - Is it evergreen or a fad?
+
+    Return JSON: {"score": <int>, "reasoning": "<string>", "product_angle": "<string>"}

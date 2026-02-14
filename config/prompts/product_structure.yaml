@@ -1,0 +1,66 @@
+name: "Product Structure"
+agent: "product_architect"
+phase: 4
+version: 1
+variables:
+  - niche
+  - audience_profile
+  - pain_points
+  - competitor_analysis
+
+templates:
+  create_blueprint: |
+    You are a digital product architect. Design a complete product suite.
+
+    NICHE: {{niche}}
+    AUDIENCE: {{audience_profile}}
+    PAIN POINTS: {{pain_points}}
+    COMPETITOR GAPS: {{competitor_analysis}}
+
+    Create a MASTER BLUEPRINT with:
+
+    1. MAIN PRODUCT (ebook/guide/course):
+       - Title (compelling, benefit-driven)
+       - Subtitle
+       - Chapter outline (8-12 chapters, each with 3-5 key points)
+       - Unique angle (how this is different from competitors)
+       - Page count estimate
+       - Price point
+
+    2. BONUS 1 (checklist/worksheet):
+       - Title
+       - Content outline
+       - How it complements the main product
+
+    3. BONUS 2 (quick-start guide):
+       - Title
+       - Content outline
+
+    4. ORDER BUMP (template/swipe file):
+       - Title
+       - Content outline
+       - Price point
+
+    5. UPSELL (advanced guide or video training outline):
+       - Title
+       - Content outline
+       - Price point
+
+    Each product must be INDEPENDENT (works on its own) but complementary.
+
+    Return as JSON.
+
+  improve_from_competitors: |
+    Analyze these competitor products in {{niche}} and identify improvements.
+
+    COMPETITORS:
+    {{competitor_products}}
+
+    For each competitor, identify:
+    1. What they do well
+    2. What they're missing
+    3. How our product should be better
+
+    Then provide 5 specific improvements for our product blueprint.
+
+    Return as JSON.

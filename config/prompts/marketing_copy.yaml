@@ -1,0 +1,84 @@
+name: "Marketing & Funnel Copy"
+agent: "funnel_builder"
+phase: 7
+version: 1
+variables:
+  - product_name
+  - product_description
+  - audience_profile
+  - pain_points
+  - price
+  - bonuses
+
+templates:
+  generate_landing_page: |
+    Write complete sales page copy for this digital product.
+
+    PRODUCT: {{product_name}}
+    DESCRIPTION: {{product_description}}
+    AUDIENCE: {{audience_profile}}
+    PAIN POINTS: {{pain_points}}
+    PRICE: {{price}}
+    BONUSES: {{bonuses}}
+
+    Write the following sections:
+    1. HEADLINE (hook — pattern interrupt or big promise)
+    2. SUBHEADLINE (expand on the promise)
+    3. OPENING (pain agitation — connect with their struggle)
+    4. THE PROBLEM (why everything else has failed them)
+    5. THE SOLUTION (introduce the product)
+    6. WHAT YOU'LL LEARN (benefit bullets, not feature bullets)
+    7. CHAPTER BREAKDOWN (brief value preview of each chapter)
+    8. BONUSES (stack the value)
+    9. SOCIAL PROOF SECTION (placeholder structure)
+    10. PRICE REVEAL + ANCHOR (show value vs price)
+    11. GUARANTEE (risk reversal)
+    12. FAQ (5-7 objection-handling questions)
+    13. FINAL CTA (urgency + action)
+
+    Write in a direct, conversational style. No corporate speak.
+    Return as JSON with each section as a key.
+
+  generate_email_sequence: |
+    Write a 7-email welcome/nurture sequence for buyers of "{{product_name}}".
+
+    AUDIENCE: {{audience_profile}}
+    PRODUCT: {{product_description}}
+
+    Email sequence:
+    1. Welcome + delivery (immediate)
+    2. Quick win from the product (Day 1)
+    3. Overcome first objection / common mistake (Day 3)
+    4. Case study / social proof (Day 5)
+    5. Bonus reminder + deeper tip (Day 7)
+    6. Upsell soft pitch (Day 10)
+    7. Upsell hard pitch + urgency (Day 14)
+
+    For each email provide:
+    - Subject line (+ 2 alternatives for A/B testing)
+    - Preview text
+    - Body copy
+    - CTA
+
+    Return as JSON array.
+
+  generate_ad_copy: |
+    Write Meta Ads copy variations for "{{product_name}}".
+
+    AUDIENCE: {{audience_profile}}
+    PAIN POINTS: {{pain_points}}
+    PRODUCT: {{product_description}}
+
+    Generate 4 ad copy variations, each with a different hook angle:
+    1. Pain-based hook
+    2. Curiosity-based hook
+    3. Social proof / authority hook
+    4. Contrarian / myth-busting hook
+
+    For each variation provide:
+    - Primary text (125 chars max)
+    - Headline (40 chars max)
+    - Description (30 chars max)
+    - CTA suggestion
+
+    Return as JSON array.

@@ -1,0 +1,72 @@
+name: "Content Writing"
+agent: "content_writer"
+phase: 5
+version: 1
+variables:
+  - product_name
+  - chapter_title
+  - chapter_outline
+  - author_style
+  - audience_profile
+  - previous_chapters_summary
+
+templates:
+  write_chapter: |
+    You are a professional author writing a digital info-product.
+
+    PRODUCT: {{product_name}}
+    CHAPTER: {{chapter_title}}
+    OUTLINE: {{chapter_outline}}
+    AUDIENCE: {{audience_profile}}
+
+    AUTHOR STYLE GUIDELINES:
+    {{author_style}}
+
+    CONTEXT FROM PREVIOUS CHAPTERS:
+    {{previous_chapters_summary}}
+
+    Write this chapter following these rules:
+    - Conversational but authoritative tone
+    - Use real examples and actionable advice
+    - Include practical exercises or action steps
+    - No fluff, no filler, no generic advice
+    - Each section should deliver genuine value
+    - Write 2000-3000 words
+    - Use subheadings, bullet points, and callout boxes
+    - End with a chapter summary and action items
+
+    Write the complete chapter now.
+
+  write_bonus: |
+    Write a bonus resource for the product "{{product_name}}".
+
+    BONUS TITLE: {{bonus_title}}
+    BONUS OUTLINE: {{bonus_outline}}
+    AUDIENCE: {{audience_profile}}
+
+    This is a standalone resource that complements the main product.
+    Make it immediately actionable — the reader should be able to use it
+    within 15 minutes of reading.
+
+    Write the complete bonus content now.
+
+  review_content: |
+    Review this chapter for quality and consistency.
+
+    CONTENT:
+    {{content}}
+
+    Check for:
+    1. AI artifacts (phrases like "dive into", "unleash", "journey", "landscape")
+    2. Repetitive statements
+    3. Generic advice that lacks specificity
+    4. Consistency with the author style
+    5. Actionability — does it give concrete steps?
+    6. Grammar and flow
+
+    Return JSON:
+    {
+      "score": <1-100>,
+      "issues": [{"type": "...", "location": "...", "suggestion": "..."}],
+      "revised_content": "<full revised content if score < 80>"
+    }

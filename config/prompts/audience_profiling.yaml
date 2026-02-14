@@ -1,0 +1,54 @@
+name: "Audience & Pain Points"
+agent: "audience_profiler"
+phase: 3
+version: 1
+variables:
+  - niche
+  - trend_data
+  - search_questions
+  - reddit_discussions
+
+templates:
+  build_audience_profile: |
+    You are an audience research specialist for digital info-products.
+
+    Build a comprehensive buyer persona for this niche.
+
+    NICHE: {{niche}}
+
+    SEARCH QUESTIONS (People Also Ask / Autocomplete):
+    {{search_questions}}
+
+    REDDIT DISCUSSIONS:
+    {{reddit_discussions}}
+
+    TREND CONTEXT:
+    {{trend_data}}
+
+    Create a detailed audience profile including:
+    1. Demographics (age range, gender split, income level, education)
+    2. Psychographics (values, beliefs, aspirations)
+    3. Top 10 pain points (ranked by intensity)
+    4. Top 10 desires/goals
+    5. Where they hang out online (platforms, communities)
+    6. What they've already tried (and why it failed)
+    7. Buying triggers (what would make them buy RIGHT NOW)
+    8. Objections to purchasing (and how to overcome each)
+    9. Language patterns (exact phrases they use to describe their problems)
+    10. Meta Ads targeting suggestions (interests, behaviors, lookalikes)
+
+    Return as JSON.
+
+  extract_pain_points: |
+    Extract the deepest pain points from these real discussions about {{niche}}.
+
+    DISCUSSIONS:
+    {{discussions}}
+
+    For each pain point:
+    1. The pain point (in their own words)
+    2. Emotional intensity (1-10)
+    3. How our product could address it
+    4. Headline angle based on this pain
+
+    Return as JSON array, sorted by emotional intensity descending.

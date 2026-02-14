@@ -1,0 +1,42 @@
+name: "Ad Creative Generation"
+agent: "campaign_launcher"
+phase: 8
+version: 1
+variables:
+  - product_name
+  - ad_copy
+  - brand_colors
+  - cover_image_url
+
+templates:
+  ideogram_prompt: |
+    Generate a prompt for Ideogram AI to create an ad creative image.
+
+    PRODUCT: {{product_name}}
+    AD COPY HOOK: {{hook}}
+    BRAND COLORS: {{brand_colors}}
+
+    Create a prompt that will generate a visually striking ad image suitable
+    for Meta Ads (Facebook/Instagram). The image should:
+    - Be clean and professional
+    - Include minimal text (just the hook headline if any)
+    - Use the brand colors
+    - Be suitable for 1:1 (feed), 4:5 (feed), and 9:16 (stories) formats
+    - Evoke the emotion of the target audience
+
+    Return JSON: {"prompt": "...", "negative_prompt": "...", "style": "..."}
+
+  bannerbear_template_config: |
+    Create a Bannerbear template configuration for ad creatives.
+
+    PRODUCT: {{product_name}}
+    AD VARIATIONS: {{ad_copy}}
+    COVER IMAGE: {{cover_image_url}}
+    BRAND COLORS: {{brand_colors}}
+
+    For each ad variation, define:
+    1. Template modifications (text layers, image layers)
+    2. Format variations needed (1:1, 4:5, 9:16)
+    3. Text placement and styling
+
+    Return as JSON array of Bannerbear API payloads.
